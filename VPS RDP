@@ -1,0 +1,35 @@
+#! /bin/bash
+printf "Dok čekaš klikni na website i onda na neku reklamu, tih $0.02 će mi pomoć xD- https://www.markanovic.hr/" >&2
+{
+sudo useradd -m Admin
+sudo adduser Admin sudo
+echo 'Admin:123456' | sudo chpasswd
+sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
+sudo apt-get update
+wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
+sudo dpkg --install chrome-remote-desktop_current_amd64.deb
+sudo apt install --assume-yes --fix-broken
+sudo DEBIAN_FRONTEND=noninteractive \
+apt install --assume-yes xfce4 desktop-base
+sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'  
+sudo apt install --assume-yes xscreensaver
+sudo systemctl disable lightdm.service
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg --install google-chrome-stable_current_amd64.deb
+sudo apt install --assume-yes --fix-broken
+wget https://media.codeweavers.com/pub/crossover/cxlinux/demo/crossover_20.0.2-1.deb
+sudo dpkg -i crossover_20.0.2-1.deb
+sudo apt install --assume-yes --fix-broken
+sudo apt install nautilus nano -y 
+sudo apt -y install obs-studio
+sudo apt -y install firefox
+sudo adduser ALOK chrome-remote-desktop
+} &> /dev/null &&
+printf "\nSetup Completed " >&2 ||
+printf "\nError Occured " >&2
+printf '\nCheck https://remotedesktop.google.com/headless  Klikni ovdje pa ZAPOČNI pa onda na DALJE i AUTORIZIRAJ, kopiraj Debian Linux te pasteovdje...\n'
+read -p "Paste ovdje pa enter, kada te traži PIN utipkaj 123456: " CRP
+su - Admin -c """$CRP"""
+printf 'Provjeri https://remotedesktop.google.com/access/ \n'
+printf 'Tvoj SUDO Pasword je 123456 \n'
+printf 'Terminal issue solve - https://youtu.be/XZxxaNWJxT0'
