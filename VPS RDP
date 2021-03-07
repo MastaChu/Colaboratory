@@ -32,4 +32,4 @@ read -p "Paste ovdje pa enter, kada te traži PIN utipkaj 123456: " CRP
 su - Admin -c """$CRP"""
 printf 'Provjeri https://remotedesktop.google.com/access/ \n'
 printf 'Tvoj SUDO Pasword je 123456 \n'
-printf 'Terminal issue solve - https://youtu.be/XZxxaNWJxT0'
+printf 'Ako ima problem sa Terminalom - https://youtu.be/XZxxaNWJxT0'
